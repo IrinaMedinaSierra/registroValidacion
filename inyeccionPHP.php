@@ -56,9 +56,9 @@ if (isset($_POST["enviar"])) {
 
         Array.from(forms).forEach(form => {
             form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
+                if (!form.checkValidity()) {// comprueba si el elemento tiene alguna restricción y si la satisface
+                    event.preventDefault() //Cancela el evento de envio del submit si el formulario tiene errores
+                    event.stopPropagation()//impide que se siga propagando el evento actual
 
                     const inputs = form.querySelectorAll('input');
                     inputs.forEach(input => {
